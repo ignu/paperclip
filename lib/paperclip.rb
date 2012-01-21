@@ -319,7 +319,7 @@ module Paperclip
         if respond_to?(:class_attribute)
           self.attachment_definitions = {}
         else
-          write_inheritable_attribute(:attachment_definitions, {})
+          inheritable_attribute[:attachment_definitions] = {}
         end
       else
         self.attachment_definitions = self.attachment_definitions.dup
@@ -444,7 +444,7 @@ module Paperclip
       if respond_to?(:class_attribute)
         self.attachment_definitions
       else
-        read_inheritable_attribute(:attachment_definitions)
+        inheritable_attributes[:attachment_definitions]
       end
     end
   end
